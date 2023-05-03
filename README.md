@@ -1,4 +1,4 @@
-# DevopsNotes
+# K8s manifests content:
 1. Deployment
 2. Service
 3. Node Selectors
