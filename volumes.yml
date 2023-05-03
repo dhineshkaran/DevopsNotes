@@ -1,4 +1,4 @@
-#1 mount local path to specific node container path
+#1 mount local path to specific node container path.
 
 apiVersion: apps/v1
 kind: Deployment
