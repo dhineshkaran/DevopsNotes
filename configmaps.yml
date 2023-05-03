@@ -1,0 +1,38 @@
+#store configuration in k8s and map this with deployment and it ll uses this configuration during deployment
+#you can convert your configuration file into k8s configmap by
+# kubectl create configmap configmapname--from-file configurationfilename
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: myconfig
+  namespace: default
+data:
+  nginx.conf: | # add ':' and the end of the keyname
+    key: value
+---
+
+# integrate deployment to use this configmap
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: configmapdeployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        key: value
+    spec:
+      volumes:
+        - name:  configmapvolume #name of this volume so we can refer in volumemounts.
+          configmap:
+            name: myconfig #name of the configmap created
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          limits:
+            memory: "20Mi"
+            cpu: "100m"
+        volumeMounts:
+          - name: configmapvolume
+            mountPath:  /etc/nginx/nginx.conf #container path file
