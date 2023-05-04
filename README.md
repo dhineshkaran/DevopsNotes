@@ -1,2 +1,1 @@
-GitCommands
-List of git commands Used
+# Git Commands
