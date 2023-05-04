@@ -11,6 +11,6 @@
 10. Service Accounts
 11. InitContainers
 12. SideCarContainers
-13.
+13. HPA
 14.
 15.
