@@ -1,4 +1,0 @@
-# kubectl apply -f pod.yaml --pod-manifest-path=/etc/kubernetes/manifests/
-# static pod is also like a normal pod, set the path for the manifest file for staticpod
-# staticpod run as long as yaml file is there
-# update the kubelet config file by passing some arguements and reload the kublet 
