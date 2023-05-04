@@ -8,9 +8,9 @@
 7. Volumes, PVC, SC, Persistent Volumes
 8. Resources, Limits
 9. Ingress, Nginx Ingress Controller
-10. 
-11.
-12.
+10. Service Accounts
+11. InitContainers
+12. SideCarContainers
 13.
 14.
 15.

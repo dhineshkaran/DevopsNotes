@@ -1,0 +1,97 @@
+# Authentication - means are valid to login into the system. success 200, failurecode 401
+# Authorization - means you have permission to do set of actions. success 200, failure code 403
+# Role - Role created which can do some actions
+# RoleBinding - This will bind the user with the role, so that the role help the user to do the tasks.
+#kubectl auth can-i <action - get/create/delete> <resourcename> --as <username> this can check whether the user has permissions or not
+
+#important -  Role and RoleBinding is not namespaced resources eg. pod, deployment, svc.
+# ClusterRole and ClusterRoleBinding are used for non namespaced resources. eg. nodes, pv, namespaces.  
+
+#Role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: rolename
+  namespace: namespacename
+rules:
+- apiGroups: [""] #indicates the core API group
+  resources: ["pods"] #resource you need to give access
+  verbs: ["get", "watch", "list"] #actions u need to add
+---
+
+#RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rolebindingname
+  namespace: namespacename
+subjects:
+- kind: User 
+  name: name #Username
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: rolename #name of the role to be binded
+  apiGroup: rbac.authorization.k8s.io
+---
+#ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: clusterrolename
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["node"]
+  verbs: ["get", "watch", "list"]
+---
+#ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: clusterrolebinding
+subjects:
+- kind: User
+  name: name # Name is case sensitive
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: clusterrolename # refer the clustername here
+  apiGroup: rbac.authorization.k8s.io
+---
+#ServiceAccount - Account used by application to integrate with k8s
+# For eg, When to create a dashboard for k8s, you will create a serviceaccount
+# this service account will create a token which is stored in form of secret
+# you can use this secret (token) to authorize the k8s dashboard to connect with your cluster
+# you can also mount this secret as volume with your application to share token manually
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name:  serviceaccountname
+---
+#integrate this with deployment
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Enter deployment name
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        key: value
+    spec:
+      containers:
+      - name: container1
+        image: tomcat
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "100Mi"
+          limits:
+            cpu: "10m"
+            memory: "100Mi"
+      serviceAccountName: serviceaccountname #serviceaccountname
+
+# note in backend it will create a secret with the token
