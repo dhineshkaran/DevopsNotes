@@ -43,5 +43,13 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+      - name: sidecarcontainer # this is just like any other container and will run like other container, and share the resources of pod
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        volumeMounts:
+          - name: initvolume
+            mountPath: /path/
 #sidecar containers - this container will run parallely with the main containers and share the same resources of main containers. It should be attached with any main container or it doest make any use.
-
