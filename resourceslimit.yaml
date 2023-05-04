@@ -1,0 +1,29 @@
+#monitor k8s performance
+#kubectl top node nodename, top pod podname to see the performance
+#for the above we need metric server
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymentname
+spec:
+  selector:
+    matchLabels:
+      key: value
+  replicas: 3
+  template:
+    metadata:
+      labels:
+          key: value
+    spec:
+      containers:
+      - name: container1
+        image: tomcat
+        containerPort: 80
+        resources:
+          requests: #minimum required capacity
+            cpu: "10m"
+            memory: "10Mi"
+          limits: #maximum utilization it can use 
+            cpu: "10m"
+            memory: "10Mi" #mebibyte
