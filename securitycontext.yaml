@@ -1,0 +1,27 @@
+#containers inside a pod if mounted to node root volume, whoever loggedin into the container can able to delete the mount path. So there we can use security context and limit the pod access.
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: deploymentname
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        editor: vscode
+    spec:
+      securityContext:
+        runAsUser: 2000
+        runAsGroup: 2000
+      containers:
+      - name: containername
+        image: tomcat
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "10Mi"
+          limits:
+            cpu: "10m"
+            memory: "10Mi"
+            
