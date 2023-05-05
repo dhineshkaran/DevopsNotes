@@ -7,7 +7,7 @@
 
 # with fluentbit you can able to collect logs and forward it to search services (open search, elastic search)
 # components in flunetbit
-1. input (collect log from various sources) - Tail plugin 
+1. input (collect log from various sources) - Systemd (linux env logs), Tail plugin (collect text files)
 2. parser (analysing the logs) - json plugin
 3. Filter (modify, enrich, drop the collected logs) - grep plugin
 4. Output (forward the collected log) - elastic search, opensearch

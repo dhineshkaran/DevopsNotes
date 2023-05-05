@@ -1,0 +1,19 @@
+# rollingUpdate - default method - each pod is rolled out and only if it is successful the older pod is evicted.
+# Pros:
+# 1: Rollout is steady, no downtime
+# 2: Best usecase for statefulset applications.
+# Cons:
+# 1: Takes time
+# 2: no control or limiting access between old pods, and new pods
+
+# undo the deployment
+# kubectl rollout undo deploy <deploymentname>
+
+
+#  Recreate - kill all application at a time and rollout new pod in one time.
+#  It has downtime
+
+
+# Canary deployment - A less replica of new version with high replica of old version is set.
+# then we will increase the old version replicas and slow down new version replica.
+
