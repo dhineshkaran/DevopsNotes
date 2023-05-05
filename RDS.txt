@@ -1,0 +1,71 @@
+AWS RDS:
+
+1. DB engines in AWS RDS:
+    Mysql (aurora, mysql, mariadb, postgresql,) ms sql, oracle
+
+2. diff between structured and unstructed database:
+    structured: Tabular column and rows format, mostly used for integers & strings
+    unstructed: Not-character type, mostly used for images, docs, and others.
+
+3.  How many database can be stored in RDS :   
+    N number of database in mysql
+    mysql can have 100 db, and oracle can have 1 db.
+
+4. types of backup in database:
+    automated snapshots (deleted when deleting the database instance after 24 hours), manual snapshots (retained for ever)
+
+5. Retaintation period: default 7 days, maximum 35 days.
+
+6. How automated backup works: 
+    Takes backup based on time 
+
+7: How point in time backup works:
+
+8: How many snapshots can be preseved: 100 snapshots
+
+9: Parameter group:
+
+10: Where snapshot will be saved: backend aws s3 bucket not visible to us
+
+11: will db available during backup widow and maintenance window:
+    io will be disabled so will not work.
+
+12: When i prefer provisioned iops over standard standard storage:
+    If high patch will be there then choose provisioned iops.
+
+13: Is it possible to stop rds database:
+    yes it is possible but not more than 7 days. It will start automatically.
+
+14: Multi available RDS: Primary and secondary (synchronous replication)
+
+15: Read replica vs multi az:
+
+
+16: Maximum readreplica: aurora 15, other 5 RR
+
+17: Aurora and additional features:
+
+18: How to migrate live DB to RDS:
+    DMS
+
+19: Can I use standby database for read and write operation when there is primary db instance is there:
+    Node
+
+20: Primary and standby database:
+
+21: How to handle high reads:
+    1. enable elastic cache
+    2. Vertical autoscaling
+    3. readreplica
+
+22. Monitor Read and write in RDS:
+    CW
+
+23. My queries seem to slow: 
+    Instance type upgradation, optimize query with developer
+
+24. Option group:
+
+25. Primary key: Unique column name across all the tables in the database.
+
+26. 
