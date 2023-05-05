@@ -12,5 +12,9 @@
 11. InitContainers
 12. SideCarContainers
 13. HPA
-14.
-15.
+14. Karpenter
+15. EBS CSI Driver
+16. VPC CNI
+17. Deployment Strategy
+18. Integrate IAM Roles with EKS
+19. Statefulsets

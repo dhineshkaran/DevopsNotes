@@ -1,0 +1,59 @@
+# stateful applications - this type of application will need some information with the before sent request to process the current request
+
+# what problems does statefulsets solve?
+1. it garuntees pod name uniqueness, whenever a pod is restarted it will have the same name as before so that the user always points to the same pod. Some cases each pod should have same name so that they can talk to each other for data replication (read writepods) in that case unique names helps. Also if the pod name is same as before it can be attached to the same pv and this will avoid data loss.
+2. pod will need services to communicate. but the default 3 k8s svc are loadbalancing in nature, which means the request will be routed to any pod. but for statefulset we need all pod should point to this pv. and master pod should repliacte data to this read pod. So we use Headless service.
+3. in statefulset pod should be created one by one. so this gaurentes it. 
+
+#statefulsets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sts-service-name
+  labels:
+    key: value
+spec:
+  ports:
+  - port: 80
+    key: value
+  clusterIP: None # headless service setup to none
+  selector:
+    key: value
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset-application
+spec:
+  selector:
+    matchLabels:
+      key: value
+  serviceName: "sts-service-name" # mention the headless service name here
+  replicas: 3 
+  minReadySeconds: 10 
+  template:
+    metadata:
+      labels:
+        key: value
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: registry.k8s.io/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "my-storage-class" # storageclass should be created first
+      resources:
+        requests:
+          storage: 1Gi
