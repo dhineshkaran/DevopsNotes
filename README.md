@@ -1,2 +1,3 @@
-# Devops Notes
-Choose branches for different devops tools and Notes.
+# AWS Notes
+
+1. RDS
