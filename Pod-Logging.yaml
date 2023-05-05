@@ -1,0 +1,18 @@
+#https://www.eksworkshop.com/docs/observability/logging/pod-logging/
+
+#Pod Loggin with FluentBit with Cloudwatch
+# FluentBit
+# https://www.youtube.com/watch?v=KJlWV5-o8v0&t=946s&ab_channel=IsitObservable
+# https://www.youtube.com/watch?v=3sMGLmSzCjc&t=2035s&ab_channel=CloudQuickLabs
+
+# with fluentbit you can able to collect logs and forward it to search services (open search, elastic search)
+# components in flunetbit
+1. input (collect log from various sources) - Tail plugin 
+2. parser (analysing the logs) - json plugin
+3. Filter (modify, enrich, drop the collected logs) - grep plugin
+4. Output (forward the collected log) - elastic search, opensearch
+
+# calyptia- visualize your fluentbit configuration file to see it is valid or not
+# Fluentbit vs fluentd - fb is lightweight usually in kb and have zero dependancy
+# fluebitd is 40mb and have gem dependancy
+

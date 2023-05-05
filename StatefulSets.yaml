@@ -5,6 +5,8 @@
 2. pod will need services to communicate. but the default 3 k8s svc are loadbalancing in nature, which means the request will be routed to any pod. but for statefulset we need all pod should point to this pv. and master pod should repliacte data to this read pod. So we use Headless service.
 3. in statefulset pod should be created one by one. so this gaurentes it. 
 
+# https://www.eksworkshop.com/docs/fundamentals/storage/  EKS statefulset workshop
+
 #statefulsets
 ---
 apiVersion: v1
