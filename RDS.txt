@@ -70,4 +70,34 @@ AWS RDS:
 
 26. RPO: Recorvery Point Objective (Time gap between backup taken time and failed db) & RTO (Faileddb and Full Recorvery db time) 
 
-27. 
+27. convert Single AZ to Multi AZ using cli
+    aws rds modify-db-instance \
+--db-instance-identifier rds-mysql-instance \
+--multi-az --apply-immediately
+
+28. how to convert single az to multi az
+    create a read replica and convert read replica into multi az and promote read replica
+
+29. Fail over process: When primary db is down or un responsive, then the standby db can be failovered and you can resume the process with the standyby db promoted. Works with certain conditions only
+    Some patch is happening in primary db os, db unhealthy, or busy, unresponsive,requested by customer.
+    Failover can be quick.
+
+30. CloudWatch gathers metrics about CPU utilization from the hypervisor for a DB instance, and Enhanced Monitoring gathers its metrics from an agent on the instance
+
+31. performance insights - monitoring based on db performance, hosts, users, and sql.
+
+32. Setup IAM authentication - create a ec2 instance role with permission to db, and create a user with the iam user and generate certificate credentails in specific dir. Then user can request a temprory token and can connect with the help of that token. 
+
+33.what happens if read replica is tried to write: "The MySQL server is running with the --read-only option so it cannot execute this statement"
+
+34. aurora failover advantages - if you have multiple read replica and would like to failover when primary db is unresponsive, u can set the tier to 0,1,2,3,4,5 to make failover.
+
+35. RDS Proxy - In order not to overload db directly we can use rds proxy.
+    It acts as a middle man between mysql client and db. But the limitation is proxy can be accessible within the vpc but not outside though the db itself is outside.
+    Advantage -  is it can able to filter the db offloading by limiting the request in.
+
+36. Difference between RDS & Aurora:
+    RDS: has 5 readreplica. Failover is manual untill u give multi az. Delay in failover time.
+    aurora: has 15 read per az. automatic failover. port no 5432. Quick failover comparing rds.
+
+37. 
