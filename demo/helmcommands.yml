@@ -1,0 +1,30 @@
+helm create demo
+helm lint ./chartfolder - validating the charts
+helm install --dry-run --debug./chartsfolder chartname
+helm list
+helm uninstall demo
+
+helm dependancy build/list/update
+  build - It is used for trasitive dependancies. compares charts file with the charts.log file and sync the pre dependancy charts need here. It only sync no new dependancy will be added.
+  list - list the dependancies
+  update - update the charts folder based on the charts.yaml file.
+
+ helm env - shows all the default environmental variables of helm configurations
+
+ helm get all/values - download all the information about the deployments.
+  values - find the values changed from the previous deployment (user changed values)
+
+helm history - shows deployment history
+  helm history --max 1 shows last 1 releases
+
+helm install chartname chartpath - deploys charts
+helm install demo --set service.type=Nodeport
+helm install demo chartname --namespace namespace
+
+helm list - list the releases
+
+helm delete demo - deletes the release
+
+helm lint demo - validate the syntax
+helm lint demo --strict - even if one small warning, charts validation will be failed
+
