@@ -28,3 +28,23 @@ helm delete demo - deletes the release
 helm lint demo - validate the syntax
 helm lint demo --strict - even if one small warning, charts validation will be failed
 
+helm package chartfile- converts chart into archive
+helm package charfile --destination /home/- saves in particular dir
+
+helm plugin install/list/uninstall/update
+  helm plugin install diff - install installs pluing 
+  helm plugin list - list plugins
+  helm plugin update pluginname - downloads that plugin latest version
+
+helm diff upgrade releasename --values filepath - shows the difference in the existing file and new file
+
+helm pull - pull charts from any repository
+helm pull reponame --untar --destination /home 
+
+helm repo reponame repourl - repo is set of charts stored in under one roof
+helm repo list
+
+helm rollback - rollback to previous version
+helm rollback realeasename --force - forcefully removes the release
+
+helm search hub demo - search charts in helm hub
