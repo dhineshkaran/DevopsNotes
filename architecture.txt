@@ -1,0 +1,11 @@
+Helm is a package manager for k8s. We can reuse the k8s manifest by specifying the value somewhere.
+Track deployments
+
+Charts: packaging formats.
+Directory structure of Helm
+1. Charts.yaml contains dependancies
+2. template.yaml contains actual deployment files
+3. values.yaml contains values of deployment files
+4. README.md information about the Charts
+5. _helpers.tpl define the functions
+6. test-connections.yaml before doing the actualy deployment run some function. Then this can be used.
