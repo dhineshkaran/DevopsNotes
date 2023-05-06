@@ -68,4 +68,6 @@ AWS RDS:
 
 25. Primary key: Unique column name across all the tables in the database.
 
-26. 
+26. RPO: Recorvery Point Objective (Time gap between backup taken time and failed db) & RTO (Faileddb and Full Recorvery db time) 
+
+27. 
