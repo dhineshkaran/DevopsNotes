@@ -37,7 +37,7 @@ memory information: cat /proc/meminfo
 see os version: uname -a
 find from the executable is running: whereis cmd
 show filesystem: df
-show diskspace: df -h
+show filesystem human readable: df -h
 
 Software Management:
 yum install packagename
