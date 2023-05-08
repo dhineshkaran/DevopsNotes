@@ -1,0 +1,46 @@
+ASG: Maintains required number of instances all time.
+
+ASG + LB: 
+    provides required number of instances with loadbalancing option
+    which means asg will scale based on , lb will spread traffic evenly and if a instance is removed from asg
+    loadbalancer know and will not route traffic to that instance.
+
+ASG scaling options:
+    static: manual scaling
+    Dynamic: Dynamic scaling - Target tracking scaling (avg cpu utilization, networkin, networkout),
+                             -  step scaling (add 1 instance if cpuutilization is 50%, add 2 if cpu is 60%, and increase step by step)
+you can add multiple policies to one asg.
+you can add remove instance from inservice state to standby state to troubleshoot and include in the asg.
+Add termination policy to set the termination.
+
+ASG uses launch template to spin up your instance.
+Launch template vs launch configuration: LT and LC both has instance configuration information.
+LT - newer and you can modify the exsisting configurations and have mulitple version
+LC - is older version and it does not support modification and versioning
+
+spot instance:
+you need the bid the price and till that bid price you can use, and it will be terminated with short notice when bid goes up.
+90% savings.
+
+Application loadbalancer:
+    works at layer7 (http, https)
+    supports hostbased, pathbased routing
+    forward redirecting from https to https with ssl certificate support
+    it can target other aws services such as lambda
+    supports eks managed and fargate.
+
+Network loadbalancer:
+    works at tcp, udp layer.
+    Need elasticip to work efficiently.
+    support less latency and port based routing.
+    no support for eks fargate.
+
+Target: set of instance, which can be target by loadbalancer based on rules mentioned.
+
+SSL / TLS termination: encryption and decryption process for connection with acm.
+when you make connectoin from browser, encrypted request is send to loadbalancer with the acm cert.
+
+cache and cookies diff: 
+    Cache stores the website content only on a user browser for media purposes. 
+    Cookies store their content on both- a server as well as a browser for limited time authentication.
+
