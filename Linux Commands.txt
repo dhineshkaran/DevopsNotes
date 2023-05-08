@@ -76,9 +76,10 @@ rotate docker logs: use json-file logging driver,
 logs of machine: /var/log/syslog, /var/log/messages
 logs of authentication: /var/log/secure
 logs of webserver: /var/log/httpd/
+logs of nginx: /var/log/nginx
 
 swap memory:
-swap is substitue memory: Making rom as ram is swap memory, RAM is full, inactive tasks in memory are moved to the swap space.
+swap is substitue memory: Making rom as ram is swap memory. RAM is full, inactive tasks in memory are moved to the swap space.
 list swap: free -h
 view disk partition: fdisk -l
 making a storage into swap will delete the files inside the swap.
