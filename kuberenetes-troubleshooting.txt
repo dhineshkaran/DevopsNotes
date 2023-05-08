@@ -1,0 +1,38 @@
+Explain connections between customer browser and pods:
+    browser - internetgateway - alb (ingress alb) will be bound to a ingress - ingress will route to the service based on the path value - pods
+
+Debugging eks issue:
+
+Pod level:
+see pod status
+describe pod status
+see pod logs
+
+Containerlevel:
+see requests limits, and pod scheduler is busy
+check imagename and image pulling is correct, namespace is correct.
+check livenessprobes, startup probes
+
+svc level:
+check services are properly labels, ingress is properly configured.
+
+check other manifest such as labesl, pvs, pvc.
+
+check init containers are launched if used.
+
+Node level:
+check nodes are active.
+instance is in service in loadbalancer.
+login to the nodes and check container logs.
+
+master component: check scheduler, controller are active.
+
+Enable cloudwatch customer metric filter to match error, warning, and custom keyword in loggroup and target snstopic.
+
+default eks log group name: /aws/eks/my-cluster/cluster
+
+what requirement you will ask if you need to create a cluster:
+Instance type, minimum nodes, maximum nodes, region, any specific vpc, fargate or managed nodes, ondemand or spot.
+
+what will you add in a nodegroup:
+amifamily, instance type, subnet, ebs volume size, desried capacity, ssh access, maximum pods per node.
