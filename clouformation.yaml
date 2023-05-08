@@ -1,0 +1,18 @@
+#mappings:
+
+#outputs:
+LogicalID:
+  Description: Information about the value
+  Value: !Ref resourcename
+  Export: 
+    Name: exportname #this should be unique
+
+Crossstack reference: !ImportValue exportname
+
+#conditions:
+#condition used Fn::GetAtt for aws resources: attribute from a resource
+# 
+
+
+#rules:
+# Validate parameter inputs passed during cfn deployment.
