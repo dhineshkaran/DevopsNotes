@@ -27,3 +27,13 @@ Connect different vpc using:
 
     client vpn: connect to private vpc by setting you pc as a client and connect using open vpn software.
     site to site vpn: connect onprem office with aws.
+
+Connect lambda function to connect private rds:
+    create a new private route table without internet gateway.
+    attach the private subnet with lambda function and give lambda vpc access.
+    associate rds security group (3306) with this private lambda vpc group and it can able to connect over private network.
+
+Connect ec2 instance in private:
+    create nategatway in public subnet. 
+    attach the NatGatewayid in private subnet this will allow only the nategateway associated subnet can able to connec to this private instance.
+
