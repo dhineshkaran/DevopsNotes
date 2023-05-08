@@ -3,6 +3,10 @@ VPC CIDer block should be /16 and subnet can greater than that. /24 (256)
 routetable: route table has connection configuration between subnets and internet. Each subnet can be in one RT only.
 
 NatGateway: allows instance in private subnet to connect with outside internet.
+NateInstance vs NatGateway:
+    natinstance: olderversion, instancebased, and advantage is you can ssh into it.
+    nategateway: newversion, gateway based, serverless, you cant ssh.
+
 Create a NatGateway with elasticip attached, place in publicsubnet.
 Place your instance in private subnet.
 All subnets (regardless of whether they are Public or Private) within the same Amazon VPC can communicate with each other by default.
@@ -11,7 +15,15 @@ security group vs NACL:
 NACL works at subnet group. should give inbound and outbound rules.
 security group works at instance level. has only inbound rules
 
-Connect two different vpc using:
-    Transit Gateway
-    VPN
-    VPC peering
+Connect different vpc using:
+    VPC peering: connection between two vpc in aws backbone encrypted network.
+                 CIDR block should not overlap, can be diff accounts and regions.
+                -create vpc peering and anyother person should accept the vpc peering
+                 update the RT witht the vpc peering id to establish connection.
+
+    Transit Gateway: You can connect multiple vpcs to different other vpc resources (Direct connect, on prem)
+
+    VPC endpoints: create a end point and connect with aws services over as a private connection.
+
+    client vpn: connect to private vpc by setting you pc as a client and connect using open vpn software.
+    site to site vpn: connect onprem office with aws.
