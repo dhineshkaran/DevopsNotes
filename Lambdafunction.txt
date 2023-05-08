@@ -1,0 +1,16 @@
+lambda default storage: lambda has default ephemeral storage between 512MB and 10,240MB
+Monitor lambda ephimeral storage using AWS CloudWatch Lambda Insight metrics
+default lambda function execution time: 15 minutes per execution
+Lambda container images: you can use lambda functions to run containers which will run when invoked.
+    for eg we can create a short living docker container to do specific job when invoked.
+Lambda layers: Archived zip files that contain additional code  or dependancies. with this you can reduce
+                the size of you code. Also you can share layers with multiple functions.
+Query rds database from lambda: Connect lambda function to connect private rds:
+    create a new private route table without internet gateway.
+    attach the private subnet with lambda function and give lambda vpc access.
+    associate rds security group (3306) with this private lambda vpc group and it can able to connect over private network.
+
+Query rds database using rds proxy: 
+    Lambda function can provide 1000 concurrent requeset to RDS.
+    but rds is not supposed to handle that many request. In that case you can use rds proxy, which will group and handles you request by not over loading your rds database.
+

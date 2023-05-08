@@ -39,6 +39,8 @@ AWS RDS:
 14: Multi available RDS: Primary and secondary (synchronous replication)
 
 15: Read replica vs multi az:
+    In a Multi-AZ deployment, the data is replicated SYNCHRONOUSLY  – all your instances have the same data at any given time. Its is only used for failover. DISASTER RECOVERY
+    In a Readreplica, one or more read-only copies of your database instance within the same AWS Region. It can be promoted to new rds database. SCALABILITY
 
 
 16: Maximum readreplica: aurora 15, other 5 RR
@@ -100,4 +102,6 @@ AWS RDS:
     RDS: has 5 readreplica. Failover is manual untill u give multi az. Delay in failover time.
     aurora: has 15 read per az. automatic failover. port no 5432. Quick failover comparing rds.
 
-37. 
+37. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
+    Copy the automated backup and it will be changed to manual and it can be retained for long time.
+

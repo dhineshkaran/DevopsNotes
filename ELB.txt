@@ -44,3 +44,6 @@ cache and cookies diff:
     Cache stores the website content only on a user browser for media purposes. 
     Cookies store their content on both- a server as well as a browser for limited time authentication.
 
+Block countries accessing your alb by using waf. create a waf rule by selecting your alb and allow or deny the country.
+also you can redirect them to the another dns name.
+
