@@ -10,6 +10,8 @@ replace word in original file: sed -i 'oldword/newword'
 wget download file from url
 tar -xvf untar files
 tar -cvf file.tar filename : tar files
+source script.sh - run the commands inside the file. by default commands inside the file are considered as characters. but if you use source,
+                   it is considered as a command.
 
 Users:
 whoami
