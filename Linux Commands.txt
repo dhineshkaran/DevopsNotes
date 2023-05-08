@@ -113,3 +113,14 @@ see current active users - who
 Diff between tomcat and nginx:
 nginx is more suitable used as reverse proxy server, since it has the capablity to handle requests in groups.
 tomcat is more suitable for hosting static content, and for java based applications.
+
+Enable password less login:
+generate keys using ssh-keygen
+copy the pub key to remote server authorized_keys
+ssh into the server.
+
+change all file format into one format:
+for file in *.*
+do mv "$file" "${a%.txt}.pdf"
+done
+
