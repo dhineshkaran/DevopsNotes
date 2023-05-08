@@ -3,7 +3,7 @@ Files:
 find files and directories: find command
 difference between files: diff filename filenames
 search file: grep
-search dir: ls -lrta | grep dirname
+search dir in current directory: ls -lrta | grep dirname
 search dir with dirname start with word d: ls -lrta | grep ^d
 replace word: sed 'oldword/newword' filename
 replace word in original file: sed -i 'oldword/newword'
@@ -32,8 +32,8 @@ user can rwx file but cant delete: use stickybit - chmod u+s filename, chmod 177
 System Management:
 find free memory of system: free
 free -m (shows in mb)
-cpu information: cat /proc/meminfo
-memory information: cat /proc/cpuinfo
+cpu information: cat /proc/cpuinfo
+memory information: cat /proc/meminfo
 see os version: uname -a
 find from the executable is running: whereis cmd
 show filesystem: df
