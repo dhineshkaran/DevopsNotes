@@ -102,7 +102,7 @@ man ls
 
 clear whole file in doc - ecs + gg
 
-show open ports netstat -tupln
+show open ports: netstat -tupln
 
 kill a listening port: lsof -i:portnumber, and kill it proces id
 
