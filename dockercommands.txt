@@ -1,0 +1,20 @@
+docker system info
+docker system df
+docker prune all - remove stopped containers
+docker search imagename
+docker pull imagename
+docker run -itd --name containername imagename
+docker exec -t containername /bin/sh
+docker exec containername commandyouneedtouseinsdethecontainer
+docker cp filename containername:/folderpath
+docker stats
+docker system prune
+docker run -itd --name containername -p browerportno:imageexposedportno imagename
+docker inspect imageid | grep Exposedports
+docker history imagename
+docker save imagename > backupname.tar
+docker load -i backupname.tar
+docker commit containername imagename
+docker tag imagename imagename
+docker run -itd --name containername --mount source=volumename, destination=/path imagename /bin/bash
+docker run -itd --name containername -v sourcepath:destinationpath imagename /bin/bash
