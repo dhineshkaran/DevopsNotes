@@ -53,7 +53,7 @@ trace route: trace the ping path
 curl: access the application from browser
 
 Process Management:
-list process running in system: ps -ef
+list process running in system: ps -ef, ps aux (show process with cpu and memory)
 kill process: kill -9 
 list process in realtime: top
 states in top cmd: R- running state, T- stopped state, I-Idle state
@@ -98,4 +98,16 @@ read how many files are there in linux ls | wc -l
 
 man tool - show details about the cmd
 man ls
+
+clear whole file in doc - ecs + gg
+
+show open ports netstat -tupln
+
+kill a listening port: lsof -i:portnumber, and kill it proces id
+
+see current active users - who
+
+Diff between tomcat and nginx:
+nginx is more suitable used as reverse proxy server, since it has the capablity to handle requests in groups.
+tomcat is more suitable for hosting static content, and for java based applications.
 
