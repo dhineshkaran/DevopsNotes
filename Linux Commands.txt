@@ -111,4 +111,3 @@ see current active users - who
 Diff between tomcat and nginx:
 nginx is more suitable used as reverse proxy server, since it has the capablity to handle requests in groups.
 tomcat is more suitable for hosting static content, and for java based applications.
-
