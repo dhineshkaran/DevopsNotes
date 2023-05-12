@@ -2,7 +2,7 @@ ASG: Maintains required number of instances all time.
 
 ASG + LB: 
     provides required number of instances with loadbalancing option
-    which means asg will scale based on , lb will spread traffic evenly and if a instance is removed from asg
+    which means asg will scale based on cpu utilization, lb will spread traffic evenly and if a instance is removed from asg
     loadbalancer know and will not route traffic to that instance.
 
 ASG scaling options:
