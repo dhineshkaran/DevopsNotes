@@ -1,1 +1,35 @@
-1.
+1. what is elasticbean stack -AWS Elastic Beanstalk makes it even easier for developers to quickly deploy and manage applications in the AWS Cloud. Developers simply upload their application, and Elastic Beanstalk automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
+
+2. what engine you have used in elasticbeanstalk: tomcat
+
+3. elasticbeanstalk support: Amazon EC2, Amazon RDS, Elastic Load Balancing, Auto Scaling, Amazon S3, and Amazon SNS, to create an environment that runs your application.
+
+4. what ami elasticbeanstalk supports: Amazon Linux AMI and the Windows Server AMI
+
+5. You can store application files and and server log in s3 and query using athena.
+
+6. Setup source as s3 and code deploy as elasticbeanstalk.
+
+7. how to add exsiting rds database to a ebs: create a snapshot of the exsisting db and create new rds in ebs along with this.
+
+8. types of deployments in ebs - all at once, Rolling, Rolling with additional batch, Immutable, traffic spliting, blue green
+
+9. What are the upgrades that ebs allows you - patch and minor versions can be auto upgraded. But major patch version need to be done manually. 
+
+10. Version of tomcat application you have worked with - tomcat 8.5 with java 8
+
+11. During updates application will be live and can be used by customers.
+
+12. types of environments - webserver environment and worker environment. webserver will host the actual application and worker environment will have backend support with sqs connectivity between these two envs.
+
+13. ebextension - create hiddenfolder .ebsextension and store the environment configuration inside that.
+    and give eb deploy to deploy the application on it.
+
+14. how to collect application logs - use tail plugin which will fetch the application logs. 
+    you can also see full logs in console and export to s3.
+
+15. how to rotate log in eb - use logrotate option in .ebextension file to rotate the logs for specific days.
+
+16. migrate monolithic application into elasticbeanstalk - create a application loadbalancer in aws and route traffic between eb and monolithic.
+
+17. 
