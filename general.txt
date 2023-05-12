@@ -1,0 +1,33 @@
+1. how to query linux os logs in aws: 
+    create a ec2 instance role allowing cloudwatch access and add the role to that instance.
+    install cloudwatch agent and configure the source path and destination log group.
+    if need sns alerts create a metric filter with the name you want and  target a sns topic to send alerts.
+
+2. how to increase / decrease ebs volume: 
+    you can increase the instance volume while running. modify the ebs volume size and mount or sync the added ebs volume inside linux terminal.
+    decrease the ebs volume: create a snapshot and create a volume with the snapshot and attach this volume to ec2 isntance.
+
+3. provisioned iops allows multi attach but only with nitro instances.
+
+4. userdata runs only during initialization, how to make it run everytime it runs?
+    cloud_final_modules: - [scripts-user, always] use cloud init directives with shell scripts and enable scripts-user to always. and also inside user there will be path for user-data you can also delete that.
+
+5. if ec2 instance failed - check with higher family type isntance, see the monitor logs, check the volume
+
+6. types of ec2 instance checks:
+    system status checks: check on aws systems 
+    instance status checks: check on our configuration and networks (network configuratio, ebs volume attached, linux boot scripts)
+
+7. how to create public facing alb with private instance:
+    create ec2 instance in private subnet, and create alb in public security group
+    allow alb access to private instance security group.
+
+8. create iso to ami: use vm export/import tool which uses s3 bucket to create ami.
+
+9. how to see largest object size in s3: use aws cli with sort_by command
+
+10. s3 file size 5tb, single put is 5gb
+
+11. blue green deployment
+
+12. 

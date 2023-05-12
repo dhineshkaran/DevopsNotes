@@ -105,3 +105,16 @@ AWS RDS:
 37. When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
     Copy the automated backup and it will be changed to manual and it can be retained for long time.
 
+38. Migrate onprem RDS to own without downtime: Use DMS 
+
+38. how dms works: create a replication instance and configure source and target db. 
+
+39. Migrate RDS to aurora without downtime: Select the existing mysql rds db and create aurora readreplica and create aurora readreplica and promote to primary db. This will not be exactly zero but can be nearly zero.
+
+40. homogeneous and heterogeneous migration: 
+
+41. schema conversion tool: 
+
+42. see free rds storage in monitoring section: Free storage space
+
+43. 

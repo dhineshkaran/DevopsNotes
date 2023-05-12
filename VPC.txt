@@ -37,3 +37,5 @@ Connect ec2 instance in private:
     create nategatway in public subnet. 
     attach the NatGatewayid in private subnet this will allow only the nategateway associated subnet can able to connec to this private instance.
 
+connect two vpc privately: vpc peering
+
