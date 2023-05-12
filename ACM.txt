@@ -1,0 +1,39 @@
+1. ACM issues certificates to establish a encrypted secure communication between hosts.
+
+2   Types of ACM validation:
+    DNS validation: when you request for certificate by default it will create certain records in ACM.you need to copy the record to the domain provider table and add this CNAME records. Now ACM will try to resolve the CNAME name value with the CNAME key using domain provider routes.
+    
+    Email validation: requestconfirmation over email with dns registered email id.
+
+
+3. types of certificates:
+    public: to browser over internet
+    private: within the organisation, over within a specific tunnel connection
+
+4. ACM is region specific
+
+5. Types of DNS records:
+    A maps records to single ip4 address
+    AAAA maps records to ipv6 address
+    CNAME canonical name: dns name mapped from one domain to another. hostname to hostname
+    Alias Name: points hostname to speicifc aws resource names. integrate with alb
+    NS (namespace): pointed to the namespace server, which will provide you other details
+
+
+6. Route53: provides us scalable Domain Name System (DNS), domain name registration, and health-checking web services and different routing mechanism.
+
+7. hostedzone: is a place where all the records of that domain will be saved.
+
+8. routing policies:
+    Simple routing
+    Failover routing
+    Multivalue answer routing
+    Weighted routing
+    Latency-based routing
+    Geolocation routing
+
+9. Cloudfront: used to improve read performance by caching technology.
+
+10. Cloudfront dont use any SG, so ec2 must be in public, or u can use alb infront of ec2 and it can accpet traffic in private.
+
+11. 
