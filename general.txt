@@ -30,4 +30,36 @@
 
 11. blue green deployment
 
-12. 
+12. transitgateway: connect between multiple vpc's and on prem through vpc connection.
+    works as hub and spike model. 
+    share TG to many diff accounts use RAM. 
+    Multicast: 
+
+13. Can you modify ipv4 cidr in aws: no it is not possible, but you can add additional cidr block as ip4 address.
+
+14. can i move ec2 instance to another vpc: not possible you need to create a new image and move.
+
+15. subnet limitation: first 4ip and last ip will be reserved.
+
+16. Transitegatway attachment types: vpc (diff vpc same region), peering (diff vpc in diff region), vpn (vpc to onprem)
+
+17. IPsec VPN connection: enable vpc connectivity between diff vpc and diff onprem by including transit gateway.
+
+18. you can add 5 sg per ec2 instance per eni.
+
+19. you can have one cidr value fixed, and add secondary 4 secondary cidr.
+
+20. 200 subnets per region,200 routetables
+
+21. 5 elastic ip & 2 elastic natgateway
+
+22. 50 vpc peering connection
+
+23. deploy application in ec2 instance from github: create a codedeploy deployment group with the selected instance.
+    create a codepipeline with deployment as codedeployment and ec2. Update the buildspec.yaml file for the applications and configurations you need.
+    also i think we need to install codedeployagent to do this.
+
+24. ACK aws controllers for kubernetes: multiple controllers are there to integrate various services in aws.
+    you can dynamically retrieve information from the service.
+
+25. 

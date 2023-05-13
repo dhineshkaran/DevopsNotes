@@ -117,4 +117,6 @@ AWS RDS:
 
 42. see free rds storage in monitoring section: Free storage space
 
-43. 
+43. schema: structured format of the database. for eg tables, row, columns are components of schema.
+
+44. 
