@@ -18,3 +18,7 @@ docker commit containername imagename - create a image from exsisting container
 docker tag imagename imagename - add tags to images
 docker run -itd --name containername --mount source=volumename, destination=/path imagename /bin/bash
 docker run -itd --name containername -v sourcepath:destinationpath imagename /bin/bash
+docker ps -a -f running - 
+see all mapped port - docker port containerid - 
+docker ps -a --last - last created docker containers
+docker ps -a --latest - latest created docker containers
