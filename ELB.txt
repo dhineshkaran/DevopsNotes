@@ -47,3 +47,4 @@ cache and cookies diff:
 Block countries accessing your alb by using waf. create a waf rule by selecting your alb and allow or deny the country.
 also you can redirect them to the another dns name.
 
+origin: location which has the source storage of the content.
