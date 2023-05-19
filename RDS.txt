@@ -23,7 +23,7 @@ AWS RDS:
 
 8: How many snapshots can be preseved: 100 snapshots
 
-9: Parameter group:
+9: Parameter group: database engine configuration and rules
 
 10: Where snapshot will be saved: backend aws s3 bucket not visible to us
 
