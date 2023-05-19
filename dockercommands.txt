@@ -23,3 +23,4 @@ docker ps -a -f running -
 see all mapped port - docker port containerid - 
 docker ps -a --last - last created docker containers
 docker ps -a --latest - latest created docker containers
+~/.docker/config.json -> external docker registeries
