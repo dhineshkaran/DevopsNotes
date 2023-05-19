@@ -3,6 +3,7 @@ docker system df - amount of disk space used
 docker prune all - remove stopped containers
 docker search imagename
 docker pull imagename
+docker image prune -a : unused images
 docker run -itd --name containername imagename - run container
 docker exec -t containername /bin/sh - loginto container
 docker exec containername commandyouneedtouseinsdethecontainer
