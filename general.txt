@@ -39,7 +39,7 @@
 
 14. can i move ec2 instance to another vpc: not possible you need to create a new image and move.
 
-15. subnet limitation: first 4ip and last ip will be reserved.
+15. subnet limitation: first 4ip and last ip will be reserved. 0,1,2,3,255
 
 16. Transitegatway attachment types: vpc (diff vpc same region), peering (diff vpc in diff region), vpn (vpc to onprem)
 
