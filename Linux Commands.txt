@@ -15,6 +15,7 @@ source script.sh - run the commands inside the file. by default commands inside 
 
 Users:
 whoami
+who: see logged in users
 id useranme: see which group you belong to
 all user related files: /etc/passwd
 add user to group: usermod -G user group
