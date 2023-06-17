@@ -1,0 +1,23 @@
+1. Create a vpc with public and private subnet:
+    - create a vpc
+    - create subnet with public and private subnet cidr values in its az
+    - update the public subnet to auto assign ipv4 address
+    - create IGW and attach to main RT with destination 0.0.0.0 and target IGW you created
+    - Associate the public subnet in the route table
+    - and if you wish to provide outbound traffic for ec2 instance in private subnet
+      - create NAT Gateway with Eip, and create a new RT, with route (destination 0.0.0.0 and target NATgateway)
+      - associate the private subnet in this route table
+    - create an ec2 instance in private subnet
+    - create an ec2 instance in public subnet, as bastion host
+    - copy the pem key to bastion hosts and try to login into private instance.
+    
+ 2. Migrate ec2 instance:
+    - create image for the ec2 instance
+    - This will create a snapshot and using that snapshot an ami will be created
+    - use this ami to launch a new instance
+    - And while creating new instance check pem key to be used is same as before and ebs volume type, size and iops are same.
+    
+ 3. Migrate RDS instance:
+    - create a snapshot for the database
+    - and restore the database from the created snapshot
+    
