@@ -1,2 +1,10 @@
 Alb url:  503 Service Temporarily Unavailable - ec2 instance down
           502 Bad Gateway - ec2 instance not ready or alb not ready
+
+
+
+
+
+________________________________________________________________________________________
+
+lsof -i:80 ????
