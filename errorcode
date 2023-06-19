@@ -8,3 +8,4 @@ Alb url:  503 Service Temporarily Unavailable - ec2 instance down
 ________________________________________________________________________________________
 
 lsof -i:80 ????
+curl -IL url
