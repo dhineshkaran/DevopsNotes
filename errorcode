@@ -9,3 +9,6 @@ ________________________________________________________________________________
 
 lsof -i:80 ????
 curl -IL url
+host -t CNAME api.carrots.us
+
+check database using telnet
