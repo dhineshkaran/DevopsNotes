@@ -12,3 +12,4 @@ curl -IL url
 host -t CNAME api.carrots.us
 
 check database using: telnet dbhostname 3306
+dnschecker - website
