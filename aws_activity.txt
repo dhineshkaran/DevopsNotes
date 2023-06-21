@@ -20,4 +20,6 @@
  3. Migrate RDS instance:
     - create a snapshot for the database
     - and restore the database from the created snapshot
-    
+
+4. install apache tomcat in debian - apt-get install apache2 - /var/www/html - etc/apache2/apache2.conf
+5. install apache tomcat in redhad - yum install httpd - /var/www/html - etc/apache2/apache2.conf
