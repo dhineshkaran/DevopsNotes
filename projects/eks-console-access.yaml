@@ -1,0 +1,67 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: eks-console-dashboard-full-accesss-clusterrole
+rules:
+- apiGroups:
+  - "*"
+  resources:
+  - nodes
+  - namespaces
+  - pods
+  verbs:
+  - get
+  - list
+- apiGroups:
+    - apps
+  resources:
+    - deployments
+    - daemonsets
+    - statefulsets
+    - resplicasets
+  verbs:
+  - get
+  - list
+- apiGroups:
+    - batch
+  resources:
+    - jobs
+  verbs:
+  - get
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: eks-console-dashboard-full-accesss-binding
+subjects:
+- kind: Group
+  name: eks-console-dashboard-full-accesss-group
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: eks-console-dashboard-full-accesss-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mapUsers: |
+  - userarn: arn:aws:iam::XXXXXXXXXXXX:user/testuser
+    username: testuser
+    groups:
+    - system:bootstrappers
+    - system:nodes
+    - eks-console-dashboard-full-access-group
