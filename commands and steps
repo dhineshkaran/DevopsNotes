@@ -1,5 +1,10 @@
-If more than two clusters, How kuberenetes files know in which it should create resources?
+1. If more than two clusters, How kuberenetes files know in which it should create resources?
   kubectl config get-contexts
   kubectl config use-context <context-name>
   So any manifest files deployed will be deployed under this tag.
 
+2. aws eks update-kubeconfig --region ap-south-1 --name userapp
+
+3. eksctl create cluster --name userapp --region ap-south-1 --nodegroup-name userappng --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 1 --ssh-access --ssh-public-key keypair --managed
+
+4. 
