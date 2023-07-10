@@ -21,5 +21,11 @@
     - create a snapshot for the database
     - and restore the database from the created snapshot
 
-4. install apache tomcat in debian - apt-get install apache2 - /var/www/html - etc/apache2/apache2.conf
-5. install apache tomcat in redhad - yum install httpd - /var/www/html - etc/apache2/apache2.conf
+4. Migrate on-prem database into aws: 
+    use aws dms service to migrate database into aws.
+    you need to create an replication instance
+    create an source endpoint of onprem server and target endpoint with rds database with other mandatory details
+    create an replication task, you can use % symbol to copy all tables and schema into rds.
+    also there is an option to check if the connectivity is successful or not.
+
+5. 
