@@ -1,0 +1,33 @@
+1. Increase the ec2 volume - decreasing the volume doesn't need any instance stoppage. But for increasing the ec2 instance we need to take a snapshot of the existing ec2 and create a ebs volume from there.
+
+2. AMI - instance configuration record as an image. 
+
+3. create AMI from ISO - Export the ISO image into amazon s3 as an ova image.
+   Use the aws ec2 import-image command to use the image from s3.
+   and Once the AMI is created you can create an ec2 instance from that iso image.
+
+4. what is the instance you have used: m5.2xlarge (3) also worked with t3.xlarge (3).
+
+5. EC2 instance purchasing types - on-demand (pay for usage), scheduled (run only with a specified time window and terminates), spot (bidding prices and with a grace period of time it will be gracefully terminated ), dedicated hosts (dedicated physical server).
+
+6.  instance connection - private instance connected using client manager, and other traditional way is with pem key using ssh commands, ec2 instance connect from browser.
+
+7. ec2 fleet is group of ec2 instances
+
+8. 2/2 status in ec2:
+    system status check: AWS Side system provisioning status
+    instance check: startup configuration status.
+
+9. how to troubleshoot instance status failure: restart the instance, check startup configuration, check memory and the file system is corrupted.
+
+10. how to import onprem ip into ec2: Bring your own IP addresses (BYOIP) module to get that and you would need self signed key for that.
+
+11. Attach ebs volume to multiple ec2 instance: use ebs multi attach for iops ssd type ebs volumes.
+
+12. Replace root volume to its launch status: Actions, Monitor and troubleshoot, Replace root volume.
+
+13. share snapshots: sharing accounts and enter the account id.
+
+14. Accidently delete AMI and snapshot how to recover: Recycle Bin. But you should create the rule to retain the images.
+
+15. 
