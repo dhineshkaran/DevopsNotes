@@ -28,4 +28,12 @@
     create an replication task, you can use % symbol to copy all tables and schema into rds.
     also there is an option to check if the connectivity is successful or not.
 
-5. 
+5. Steps to look for successful cloud migration:
+    a. plan according to business objective
+    b. look for security complaince during the process
+    c. plan for the cloud migration strategy:
+        - lift and shift : moving whole onprem setup into aws
+        - replatform: moving only the needed setup into rds (eg onprem application using amazon rds)
+        - retain: Analyse for now and revisit later
+    d. choose what services we will be using to complete the migration
+    e. post migration acitivites - ensure to revisit once that all steps and data migration is properly done.
