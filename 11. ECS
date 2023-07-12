@@ -14,3 +14,7 @@ Amazon ECS allows you to run and maintain a specified number of instances of a t
 7. ECS service discover
 
 8. ECS ssl/tls
+
+9. Networking modes in ECS: None, Bridge (default), Host, awsvpc
+
+10. Soft limit and hard limit in ECS: 
