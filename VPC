@@ -43,3 +43,6 @@ vpc endpoints: accessing aws resources within aws private networks.
             interface endpoint all aws service - associated at the vpc level, cross region is not allowed & on prem is also not allowed
             gateway endpoint s3 & dynamo DB - associated at the subnet level, cross region and onprem connection is possible.
 
+Site to site VPN:
+
+Transit gateway:
