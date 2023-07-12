@@ -41,7 +41,7 @@
 6. AWS migration tools:
     AWS Application Discovery Service: 
     AWS Database Migration Service:
-    AWS Server Migration Service: Mostly used for hypervisor or VM-based modules using OVA module and agent-less. This will be created as                                     an ami and we can launch an instance with that ami.
+    AWS Server Migration Service: Mostly used for hypervisor or VM-based modules using OVA module and agent-less. This will be created as an ami and we can launch an instance with that ami.
     Cloud Endure: Agent-based migration activity.
     AWS Snow Family:
     
