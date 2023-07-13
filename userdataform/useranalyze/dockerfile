@@ -1,0 +1,17 @@
+# Use an appropriate base image with a web server and PHP support
+FROM php:7.4-apache
+
+# Install required PHP extensions and libraries
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Copy your PHP files to the appropriate directory
+COPY . /var/www/html
+
+# Set the working directory
+WORKDIR /var/www/html
+
+# Expose port 80 for web traffic
+EXPOSE 80
+
+# Define the entry point command to start the Apache web server
+CMD ["apache2-foreground"]

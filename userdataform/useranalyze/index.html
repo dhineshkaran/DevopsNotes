@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RDS Database Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>RDS Database Details</h1>
+
+    <?php
+    // Get the database connection details from environment variables
+    $dbHost = $_ENV['DB_HOST'];
+    $dbPort = $_ENV['DB_PORT'];
+    $dbName = $_ENV['DB_NAME'];
+    $dbUser = $_ENV['DB_USER'];
+    $dbPass = $_ENV['DB_PASSWORD'];
+
+    // Create a connection to the RDS database
+    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName, $dbPort);
+
+    // Check if the connection was successful
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Query the database to fetch data
+    $sql = "SELECT * FROM users";
+    $result = $conn->query($sql);
+
+    // Display the data in a table
+    if ($result->num_rows > 0) {
+        echo "<table>";
+        echo "<tr><th>ID</th><th>Name</th><th>Email</th></tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['email'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No records found";
+    }
+
+    // Close the database connection
+    $conn->close();
+    ?>
+
+</body>
+</html>
