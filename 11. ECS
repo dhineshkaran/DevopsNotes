@@ -1,1 +1,20 @@
+1. Amazon ECS Cluster is a logical grouping of resources.
 
+2. Task Definition is a JSON file, that describes one or more containers (up to a maximum of ten), that form your application.
+
+3. Task: After you have created a task definition for your application within Amazon ECS, you can specify the number of tasks that will run on your cluster.
+
+4. Services  - set of tasks that make sure the 
+Amazon ECS allows you to run and maintain a specified number of instances of a task definition simultaneously in a cluster. This is called a service. If any of your tasks should fail or stop for any reason, the Amazon ECS service scheduler launches another instance of your task definition to replace it and maintain the desired count of tasks in the service depending on the scheduling strategy used..A Service is used to guarantee that you always have some number of Tasks running at all times..
+
+5. ECS loadbalancer - ecs supports alb and nlb. we cannot add containers into alb. You need to redeploy the containers.
+
+6. ECS autoscaling
+
+7. ECS service discover
+
+8. ECS ssl/tls
+
+9. Networking modes in ECS: None, Bridge (default), Host, awsvpc
+
+10. Soft limit and hard limit in ECS: 

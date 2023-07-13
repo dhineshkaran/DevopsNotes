@@ -1,0 +1,14 @@
+create database:  CREATE DATABASE userlist;
+                  USE userlist;
+
+CREATE TABLE userlist (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL
+);
+
+INSERT INTO userlist (name, email, message)
+VALUES ('John Doe', 'johndoe@example.com', 'This is a dummy message');
+
+SELECT * FROM userlist;

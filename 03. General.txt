@@ -62,4 +62,8 @@
 24. ACK aws controllers for kubernetes: multiple controllers are there to integrate various services in aws.
     you can dynamically retrieve information from the service.
 
-25. 
+25. Cloudfront origin: location where your content is originally stores.
+
+26. CF distribution: Location from where your content will be delivered as a caching mechanism.
+
+27. d

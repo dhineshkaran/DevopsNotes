@@ -32,8 +32,19 @@
     a. plan according to business objective
     b. look for security complaince during the process
     c. plan for the cloud migration strategy:
-        - lift and shift : moving whole onprem setup into aws
-        - replatform: moving only the needed setup into rds (eg onprem application using amazon rds)
+        - lift and shift: moving whole on-prem setup into aws
+        - replatform: moving only the needed setup into rds (eg on-prem application using Amazon rds)
         - retain: Analyse for now and revisit later
     d. choose what services we will be using to complete the migration - aws database migration services, aws application migration services, cloud endure.
-    e. post migration acitivites - ensure to revisit once that all steps and data migration is properly done.
+    e. post-migration activities - ensure to revisit once all steps and data migration is properly done.
+
+6. AWS migration tools:
+    AWS Application Discovery Service: 
+    AWS Database Migration Service:
+    AWS Server Migration Service: Mostly used for hypervisor or VM-based modules using OVA module and agent-less. This will be created as an ami and we can launch an instance with that ami.
+    Cloud Endure: Agent-based migration activity.
+    AWS Snow Family:
+    
+
+7. 
+
