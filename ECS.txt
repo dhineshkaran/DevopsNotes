@@ -1,1 +1,25 @@
 
+Service discovery: 2 microservices connecting each other in a private connection, using a internal domain name.
+                   limit of 1,000 tasks per service
+                   supports task on fargate
+
+ECS task definition: ECS one or more container configuration of how much cpu memory and limits it need.
+
+ECS task: Actual task that will run with the help of ecs task definition, and once the task is stopped it will not be replaced automatically.
+
+ECS service: A Service is used to guarantee that you always have some number of Tasks running at all times.
+
+Task is for short living tasks and service is for long tasks
+
+FireLens as a sidecar, which collects logs from the main container running an httpd application and sends them to Kinesis Data Firehose and streams to Amazon OpenSearch Service
+
+Logging: Set of recorded event logs. 
+
+Observability: It is a broader approach also collects metrics, healthchecks and more
+
+AWS app mesh: It is application level for your services that provides tls security and control of which services can talk to which services
+
+Mesh:
+
+Virtual Node:
+
