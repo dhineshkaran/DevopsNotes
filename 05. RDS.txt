@@ -46,7 +46,7 @@ AWS RDS:
 16: Maximum readreplica: aurora 15, other 5 RR
 
 17: Aurora and additional features:
-    aurora supports multi AZ by default, point of recovery is high compared with rds, aurora is serverless and faster comparing rds.
+    aurora supports multi AZ by default, point of recovery is high compared with rds,failover is quick, aurora is serverless and faster comparing rds.
 
 18: How to migrate live DB to RDS:
     DMS
