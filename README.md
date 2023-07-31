@@ -1,3 +1,2 @@
 # Devops Notes
-Choose branches for different devops tools and Notes
-hi
+Choose branches for different devops tools and Notes.
