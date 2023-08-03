@@ -1,0 +1,14 @@
+1. migrate repo from one repo to another repo:
+
+git branch -a | grep -v HEAD | cut -d '/' -f3 | grep -v vp-rem > /tmp/branches
+
+for i in `cat /tmp/branches`; do echo $i; done
+
+for i in `cat /tmp/branches`; do git checkout $i; done
+
+git set-url origin <url>
+
+git remote -v
+
+for i in `cat /tmp/branches`; do git push origin $i; done
+
