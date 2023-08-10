@@ -1,1 +1,55 @@
-
+pod
+replica sets
+deployments
+namespace
+imperatives
+config maps
+secrets
+commands
+arguments
+security contexts
+service account
+resource requests
+limits
+taints
+tolerations
+node selector
+node affinity
+multi-container pods
+init containers
+readiness liveness probes
+container logging
+monitor and debug the application
+labels
+selectors
+annotations
+rolling updates
+rollbacks
+jobs
+cronjobs
+service
+cluster IP
+node port
+load balancer
+ingress networking
+networking policies
+volumes
+persistent volumes
+persistent volume claim
+storage classes
+stateful sets
+headless services
+authentication
+authorization
+RBAC
+cluster roles
+role binding
+admission controllers
+API versions
+custom resource definition
+custom controllers
+operator framework
+deployment strategy 
+blue green
+canary
+helm
