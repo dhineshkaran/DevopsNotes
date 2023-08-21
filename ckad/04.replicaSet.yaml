@@ -1,0 +1,28 @@
+apiVersion: apps/v1 
+kind: ReplicaSet
+metadata:
+  name: replicaset
+  labels: #label for rs
+    app: nginx
+    app: tomcat
+spec:
+  replicas: 3
+  selector:
+   matchLabels: # this is for existing pods 
+    app: nginx
+    app: tomcat
+  template:
+    metadata:
+      labels: # this is for newly creating pods
+        app: nginx
+        app: tomcat
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 8080
+      - name: tomcat
+        image: tomcat
+        ports:
+        - containerPort: 80

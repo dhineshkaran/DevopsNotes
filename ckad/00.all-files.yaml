@@ -1,0 +1,2 @@
+1. pod = spec.containers..name.image.ports..containerPort
+2. 

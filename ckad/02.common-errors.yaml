@@ -1,0 +1,5 @@
+1. Back-off: The term "back-off" refers to the strategy Kubernetes uses to prevent continuous restarting of a failing container. When a container fails, Kubernetes applies an exponential back-off strategy. This means that after each failure, the time interval before the container is restarted again increases exponentially. This helps prevent excessive resource consumption and gives the container a chance to recover.
+
+2. Restarting Failed: When a container within a Pod fails, Kubernetes attempts to restart it to ensure that the application or service it represents remains operational. Containers can fail for various reasons, such as crashing due to an error, running out of resources, or experiencing unexpected behavior.
+
+
