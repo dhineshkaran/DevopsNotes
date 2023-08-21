@@ -1,2 +1,3 @@
 1. pod = spec.containers..name.image.ports..containerPort
-2. 
+2. rs = spec..replicas.selector.template..metadata.labels.spec.containers..name.image.port..containerPort
+3. deployment = 

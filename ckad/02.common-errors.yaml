@@ -2,4 +2,56 @@
 
 2. Restarting Failed: When a container within a Pod fails, Kubernetes attempts to restart it to ensure that the application or service it represents remains operational. Containers can fail for various reasons, such as crashing due to an error, running out of resources, or experiencing unexpected behavior.
 
+3. change image name using command in deployment: kubectl set image deployments deploymentname image1=image2
+
+4. check rollout status: kubectl rollout status deployment deploymentname
+
+5. check rollout history:  kubectl rollout history deployment deploymentname
+
+6. check deatils of rollouts: kubectl rollout history deployment deploymentname --revision=2
+
+7. undo rollout: kubectl rollout undo deployment deploymentname
+
+8. scale replicas: kubectl scale deployment deployment --replicas=4
+
+9. pause rollout: kubectl rollout pause deployment deploymentname
+
+10. resume rollout: kubectl rollout resume deployment deploymentname
+
+11. set ns permanent: kubectl config set-context --current --namespace=namespace name
+
+12. see which k8s resources are ns and which are not: kubectl api-resources --namespaced=true / kubectl api-resources --namespaced=false
+
+13. Create a pod: kubectl run <pod-name> --image=<image-name>
+
+14. Execute a command: kubectl exec -it <pod-name> -- <command>
+
+15. Port-forward to a pod: kubectl port-forward <pod-name> <local-port>:<pod-port>
+
+16. Create a deployment: kubectl create deployment <deployment-name> --image=<image-name>
+
+17. Scale a deployment: kubectl scale deployment <deployment-name> --replicas=<desired-replicas>
+
+18. Update a deployment: kubectl set image deployment/<deployment-name> <container-name>=<new-image>
+
+19. Expose a deployment: kubectl expose deployment <deployment-name> --type=<service-type> --port=<port>
+
+20. Create a ConfigMap: kubectl create configmap <configmap-name> --from-file=<path/to/files>
+
+21. Create a Secret: kubectl create secret generic <secret-name> --from-literal=<key>=<value>
+
+22. Switch namespaces: kubectl config set-context --current --namespace=<namespace-name>
+
+23. Drain a node: kubectl drain <node-name> --ignore-daemonsets
+
+24. Uncordon a node: kubectl uncordon <node-name>
+
+25. Volumes:
+        a. Persistent volumes: A permanent storage provisioned by storage class either statically or dynamically.
+                               Two ways: 1. mountPath - mounts a node directory to container directory.
+                                         2. volumes - create a volume and mount to this volume.
+
+        b. persistent volume claim: This is responsible for claiming specific storage need for a pod. PVC status - pending: pvc is waiting for some pv, bound: pvc is bounded to pv and ready for pod usage.
+                                    pv and pvc properties should match for binding.
+        c. storageclasses: storageclass is used to autoprovision pv volumes. Note it should have a proper storage provisioner.
 

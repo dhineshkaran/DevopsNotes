@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    app: tomcat
+    app: nginx
+  annotations:
+    change-cause: "updating imagename"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tomcat
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: tomcat
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports: 
+        - containerPort: 8080

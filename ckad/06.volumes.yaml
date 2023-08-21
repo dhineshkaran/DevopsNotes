@@ -1,0 +1,62 @@
+#persistentvolumes
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-01
+  labels:
+     lab: pv
+spec:
+  storageClassName: local-storage
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  hostPath:
+    path: /tmp/pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc
+  labels:
+     lab: pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      lab: pv
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage
+  labels:
+    lab: pv
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+---
+#pod with pvc
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: pod-with-pvc
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html"
+        name: temppv
+  volumes:
+    - name: temppv
+      persistentVolumeClaim:
+        claimName: pvc
