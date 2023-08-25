@@ -82,4 +82,6 @@
 
 34. monitor nodes: k top node, but for this you should have deployed metrics-server.
 
-35. 
+35. list apiservices for role and cluster roles: kubectl api-resources
+
+36.  
