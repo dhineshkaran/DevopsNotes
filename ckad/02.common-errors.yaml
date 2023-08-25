@@ -57,4 +57,29 @@
 
 26. CrashLoopBackOff: this means container inside the pod is keepon crashing and is continously restarted by k8s.
 
-27. 
+27. Operators in NodeSelector:
+        In:	The label value is present in the supplied set of strings
+        NotIn:	The label value is not contained in the supplied set of strings
+        Exists:	A label with this key exists on the object
+        DoesNotExist:	No label with this key exists on the object
+
+28. requiredDuringSchedulingIgnoredDuringExecution: when pod is created affinity is considered, and ignore existing pods.
+    preferredDuringSchedulingIgnoredDuringExecution:  pod is created though pod in not matching and try to place in matching labels.
+
+    requiredDuringSchedulingIgnoredDuringExecution: 
+
+29. create serviceaccount: kubectl create sa sa-name
+
+30. image pull policy: IfnotPresent - pull image only if no image is present locally, always - pull from registry, never - pull only locally not from registry.
+
+31. backoffpolicy: fail the job after sometime of retries
+
+32. initcarcontainers: this container runs before the main container runs and this should exit successfully for the main container to start.
+    sidecar containers: this containers runs as a side car container supporting the main container. 
+    multicontainers: this can be multiple containers used inside a pod for multi uses.
+
+33. see logs of containers continously: k logs -f podname
+
+34. monitor nodes: k top node, but for this you should have deployed metrics-server.
+
+35. 

@@ -1,0 +1,30 @@
+taints: are applied in nodes.
+tolerations: are applied in pods.
+kubectl taint nodes node1 key1=value1:NoSchedule
+taint-effect: noSchedule: Pod will not be scheduled
+              PerferNoSchedule: system try not to schedule the pod but not garaunted
+              NoExecute: New pods will not be scheduled and existing pods will be evicted.
+---
+# tolerations should match with taints
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  tolerations:
+  - key: "example-key"
+    operator: "Exists"
+    effect: "NoSchedule"
+---
+NodeAffinity vs TaintsandTolerations:
+        TT: Nodes accept pod with the tolerations rule. Make sure other pods are not placed in this pod.
+        NodeSelector: Add selector to place the pod in specific node.
+        Other Pods 
+---
+
