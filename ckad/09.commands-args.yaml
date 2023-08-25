@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-cmd
+spec:
+  containers:
+  - name: debian-pod
+    image: debian
+    command: ["printenv"]
+    args: ["HOSTNAME"]

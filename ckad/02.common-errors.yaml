@@ -36,7 +36,7 @@
 
 19. Expose a deployment: kubectl expose deployment <deployment-name> --type=<service-type> --port=<port>
 
-20. Create a ConfigMap: kubectl create configmap <configmap-name> --from-file=<path/to/files>
+20. Create a ConfigMap: kubectl create configmap <configmap-name> --from-file=<path/to/files> / k create configmap configmapname --from-literal=key=value
 
 21. Create a Secret: kubectl create secret generic <secret-name> --from-literal=<key>=<value>
 
@@ -55,3 +55,6 @@
                                     pv and pvc properties should match for binding.
         c. storageclasses: storageclass is used to autoprovision pv volumes. Note it should have a proper storage provisioner.
 
+26. CrashLoopBackOff: this means container inside the pod is keepon crashing and is continously restarted by k8s.
+
+27. 
