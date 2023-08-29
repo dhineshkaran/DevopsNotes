@@ -84,4 +84,32 @@
 
 35. list apiservices for role and cluster roles: kubectl api-resources
 
-36.  
+
+50. kubectl config:
+        kubectl config view # Show Merged kubeconfig settings.
+        kubectl config set-cluster my-cluster-name           # set a cluster entry in the kubeconfig
+
+        # add a new user to your kubeconf that supports basic auth
+        kubectl config set-credentials kubeuser/foo.kubernetes.com --username=kubeuser --password=kubepassword
+        
+51. sort pods: kubectl get pods --sort-by='.status.containerStatuses[0].restartCount'
+
+52. compare current manifest with modifed yaml: kubectl diff -f ./my-manifest.yaml
+
+53. label a pod or node: kubectl label pods my-pod new-label=awesome
+
+54. remove label: kubectl label pods my-pod new-label-
+
+55. add annotation: kubectl annotate pods my-pod key: value
+
+56. remove annotation: kubectl annotate pods my-pod key-
+
+57. Delete all pods and services in namespace my-ns: kubectl -n my-ns delete pod,svc --all
+
+58. kubectl cordon my-node : Mark my-node as unschedulable
+
+59. kubectl drain my-node : Drain my-node in preparation for maintenance
+
+60. kubectl uncordon my-node : Mark my-node as schedulable
+
+61. 
