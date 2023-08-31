@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+spec:
+  serviceAccountName: serviceaccount-01
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sleep", "3600"]
+

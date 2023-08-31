@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: configmapvolume
+      mountPath: /opt
+  volumes:
+    - name: configmapvolume
+      configMap:
+        name: configmap-01

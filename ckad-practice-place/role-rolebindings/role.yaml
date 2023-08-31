@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: role-read-pod
+  namespace: default
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "watch", "list","delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: rolebinding-read-pod
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: serviceaccount-01
+  namespace: default
+roleRef:
+  kind: Role #this must be Role or ClusterRole
+  name: role-read-pod
+  apiGroup: rbac.authorization.k8s.io

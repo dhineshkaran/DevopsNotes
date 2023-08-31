@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ labels:
+   lab: pv
+ name: pv-01
+spec:
+ storageClassName: ""
+ claimRef:
+   name: pvc-01
+   namespace: default
+ capacity:
+   storage: 1Gi
+ volumeMode: Filesystem
+ accessModes:
+   - ReadWriteOnce
+ persistentVolumeReclaimPolicy: Recycle
+ local:
+    path: /tmp/pv
+ nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - minikube
+#kubernetes.io/hostname=minikube
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-01
+spec:
+  selector:
+    matchLabels:
+      lab: pv
+  volumeName: pv-01
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ""
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pv-01
+  labels:
+    lab: pv
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+      - containerPort: 8080
+      volumeMounts:
+      - mountPath: /var/www/html
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+              claimName: pvc-01

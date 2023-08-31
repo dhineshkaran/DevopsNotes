@@ -112,4 +112,21 @@
 
 60. kubectl uncordon my-node : Mark my-node as schedulable
 
-61. 
+61. Add user inside kubeconfig file: kubectl config set-credentials martin --username martin --client-key=/root/martin.key --client-certificate = /root/martin.crt
+
+62. Add context inside kubeconfig file: k config set-context developer --cluster=kubernetes --user=martin
+
+63. Add cluster inside kubeconfig file: kubectl config set-cluster e2e --certificate-authority=~/.kube/e2e/kubernetes.ca.crt
+
+64. modify current-context: kubectl config use-context developer --user=martin --cluster=kubernetes
+
+65. create nodeport: 
+
+66. create clusterip:
+
+67. create loadbalancer:
+
+68. In service: selector filed is important if creating using cmd.
+
+69. go through apiserver, and other control plane manifest files.
+

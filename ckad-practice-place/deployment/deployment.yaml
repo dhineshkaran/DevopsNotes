@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-1
+  labels:
+    key: value
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+       key: value
+  template:
+    metadata:
+     labels:
+      key: value
+    spec:
+     containers:
+     - name: container1
+       image: tomcat
+       ports:
+       - containerPort: 80
+
