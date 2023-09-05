@@ -129,4 +129,3 @@
 68. In service: selector filed is important if creating using cmd.
 
 69. go through apiserver, and other control plane manifest files.
-
