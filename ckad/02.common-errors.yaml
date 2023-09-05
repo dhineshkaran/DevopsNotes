@@ -129,3 +129,40 @@
 68. In service: selector filed is important if creating using cmd.
 
 69. go through apiserver, and other control plane manifest files.
+
+70. default port of controlplane is 6443
+
+71. controlplane components logs: cat /var/log/pods/
+
+72. controlplane component manifest: /etc/kubernetes/manifests/
+
+73. controlplane components certificates: /etc/kubernetes/pki
+
+74. files inside pki: apiserver.crt, apiserver-etcd-client.key, apiserver-kubelet-client.crt, ca.crt, front-proxy-ca.key, front-proxy-client.key  sa.pub
+apiserver-etcd-client.crt  apiserver.key, apiserver-kubelet-client.key, ca.key, front-proxy-ca.crt, front-proxy-client.crt,  sa.key
+
+75. convert k8s resource into manifest: k get nodes node01 -o yaml > node.yaml
+
+76. when a node is unschedulable use: kubectl uncordon
+
+77. tolerations effects:  kubectl taint nodes node-name key=value:effect
+                NoSchedule: no pod will be scheduled unless pod having matching toelrations
+                PreferNoSchedule: try to avoid pods
+                NoExecute: new pods will not be placed, existing pod will be evicted
+
+78. NA rules:
+        requiredDuringSchedulingIgnoredDuringExecution: guarantee pod will not be scheduled unless pod matches, existing pod stays
+        preferredDuringSchedulingIgnoredDuringExecution: guaranteed pod will be be placed, existing pod stays.
+
+79. types of volumes in k8s: emptyDir, hostPath, pvc, pv, cloudvolumes.
+
+80. topics in jobs: completions means no of pods created one after another and also create pod to run parallel using parallelism.
+
+81. cronjobs: * * * * * :
+        Minutes (0-59)
+        Hours (0-23)
+        Days of the month (1-31)
+        Months (1-12)
+        Days of the week (0-7, where both 0 and 7 represent Sunday).
+
+82. Network policies: 
