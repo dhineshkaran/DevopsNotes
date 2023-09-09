@@ -166,3 +166,26 @@ apiserver-etcd-client.crt  apiserver.key, apiserver-kubelet-client.key, ca.key, 
         Days of the week (0-7, where both 0 and 7 represent Sunday).
 
 82. Network policies: 
+
+83. admission controllers: perform additional rules for manifests and auto creation of resources. 
+
+84. list admission controllers enabled by default: kube-apiserver -h | grep enable-admission-plugins & update the kubeapiserver manifest file (spec.command.--enable-admission-plugins=)
+
+85. default admission controllers: CertificateApproval, CertificateSigning, CertificateSubjectRestriction, DefaultIngressClass, DefaultStorageClass, DefaultTolerationSeconds, LimitRanger, MutatingAdmissionWebhook, NamespaceLifecycle, PersistentVolumeClaimResize, PodSecurity, Priority, ResourceQuota, RuntimeClass, ServiceAccount, StorageObjectInUseProtection, TaintNodesByCondition, ValidatingAdmissionPolicy, ValidatingAdmissionWebhook
+
+86. check admission controller pod is running: ps -ef | grep kube-apiserver | grep admission-plugins
+
+87. difference between admission controllers and CRD:
+                admission controllers: mutate and validate the request (eg create ns which is not present there)
+                CRD: these are new userdefined resources that users can create a new k8s objects.
+
+88. decode a secret: echo "cGFzc3dvcmQxMjMK" | base64 --decode
+
+89. Mib and Mb are same, but Gib and GB are not same
+
+90. kubectl config get-cluster - list cluster
+
+91. kubectl get nodes --context cluster1
+
+92. 
+
