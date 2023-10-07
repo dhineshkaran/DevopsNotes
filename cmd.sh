@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check if tdhe local repository is up to date with the remote
+# Check if tdhe local reposditory is up to date with the remote
 git fetch
 
 # Compare the local branch with the remote branch
