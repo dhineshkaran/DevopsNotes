@@ -1,59 +1,112 @@
-1. Increase the ec2 volume:
-   i. Take a snapshot
-   ii. Increase the volume through the console or cli.
-   iii. Extend the partition using "growpart" command.
+# EC2 Operations and Concepts
 
-2. create AMI from ISO:
-   prereq: create an s3 bucket and a role "vmimport" with the required permissions.
+## Volume Management
 
-   i. Create an OVA image using any VM tool. 
-   ii. Upload the ova package into s3 bucket.
-   iii. Create a json with metadata details about the ova package.
-   iv. Use the aws ec2 import-image command to use the image from s3.
-   v. AMI will be created and can be seen in private AMIs section.
+### Increase the EC2 Volume:
+1. Take a snapshot.
+2. Increase the volume through the console or CLI.
+3. Extend the partition using the `growpart` command.
 
-4. what is the instance you have used: t2.medium for jenkins master, and t3a.medium jenkins master, t2.medium for jenkins on-demand agents, neptune has t3.medium db instance type, RDS - m5d.xlarge.
+### Replace Root Volume to Its Launch Status:
+1. Navigate to **Actions > Monitor and Troubleshoot > Replace Root Volume**.
 
-5. EC2 instance purchasing types - on-demand (pay for usage), scheduled (run only with a specified time window and terminates), spot (bidding prices and with a grace period of time it will be gracefully terminated ), dedicated hosts (dedicated physical server).
+### Attach EBS Volume to Multiple EC2 Instances:
 
-6.  instance connection - private instance connected using client manager, and other traditional way is with pem key using ssh commands, ec2 instance connect from browser.
+### Share Snapshots:
+1. Share the snapshot with another account by entering the account ID.
 
-7. ec2 fleet is group of ec2 instances
+### Accidentally Deleted AMI and Snapshot:
+- Recovery options are limited but depend on whether backups or secondary snapshots exist.
 
-8. 2/2 status in ec2:
-    system status check: AWS Side system provisioning status
-    instance check: startup configuration status.
+---
 
-9. how to troubleshoot instance status failure: restart the instance, check startup configuration, check memory and the file system is corrupted.
+## AMI Creation
 
-10. how to import onprem ip into ec2: Bring your own IP addresses (BYOIP) module to get that and you would need self signed key for that.
+### Create AMI from ISO:
+#### Prerequisites:
+- Create an S3 bucket.
+- Create a role "vmimport" with the required permissions.
 
-11. Attach ebs volume to multiple ec2 instance: use ebs multi attach for iops ssd type ebs volumes.
+#### Steps:
+1. Create an OVA image using any VM tool.
+2. Upload the OVA package into the S3 bucket.
+3. Create a JSON file with metadata details about the OVA package.
+4. Use the `aws ec2 import-image` command to use the image from S3.
+5. The AMI will be created and can be seen in the **Private AMIs** section.
 
-12. Replace root volume to its launch status: Actions, Monitor and troubleshoot, Replace root volume.
+---
 
-13. share snapshots: sharing accounts and enter the account id.
+## Instance Types
 
-14. Accidently delete AMI and snapshot how to recover: Recycle Bin. But you should create the rule to retain the images.
+### Instances Used:
+- **t2.medium**: Jenkins Master
+- **t3a.medium**: Jenkins Master
+- **t2.medium**: Jenkins On-Demand Agents
+- **t3.medium**: Neptune DB Instance Type
+- **m5d.xlarge**: RDS
 
-New:
-How would you troubleshoot an EC2 instance that is unreachable over SSH?
-What steps would you take to resize an EC2 instance with minimal downtime?
-How do you configure auto-scaling for an application hosted on EC2 instances?
-Can you explain how to debug an EC2 instance that keeps getting terminated in an Auto Scaling group?
-How do you implement high availability and disaster recovery for applications hosted on EC2?
-What are the key considerations when setting up Elastic Load Balancing with EC2 instances?
-How would you handle a situation where an EC2 instance’s disk usage is nearing 100%?
-Explain how to securely store and retrieve sensitive credentials in an EC2 environment.
-How would you migrate a legacy application running on an on-premises server to EC2?
-What steps would you take to troubleshoot performance degradation in an EC2 instance?
-How do you set up and manage EC2 instance backups?
-What are the best practices for securing EC2 instances in a production environment?
-How do you diagnose and resolve network latency issues between EC2 instances and RDS?
-What are the challenges and solutions when deploying applications across multiple EC2 instances in different regions?
-How would you troubleshoot failed deployments to EC2 instances using a CI/CD pipeline?
-Can you explain the differences between EC2 instance storage options and their use cases?
-What is your approach to managing a fleet of EC2 instances effectively?
-How do you handle a scenario where your EC2 instance is flagged for exceeding resource limits (e.g., CPU or memory)?
-What are the considerations for deploying a stateful application on EC2 instances?
-How do you optimize the cost of EC2 instances in a dynamic workload environment?
+---
+
+## EC2 Instance Purchasing Types
+1. **On-Demand**: Pay for usage.
+2. **Scheduled**: Runs within a specified time window and terminates.
+3. **Spot**: Bidding prices, with a grace period for graceful termination.
+4. **Dedicated Hosts**: Dedicated physical server.
+
+---
+
+## EC2 Instance Connection Types
+
+---
+
+## EC2 Fleet
+- A group of EC2 instances managed as a fleet.
+
+---
+
+## EC2 Status Checks
+- **2/2 Status in EC2:**
+  - **System Status Check**: AWS side system provisioning status.
+  - **Instance Check**: Startup configuration status.
+
+---
+
+## Real-Time Scenarios and Troubleshooting
+
+### How to Import On-Prem IP into EC2:
+
+### Troubleshoot an EC2 Instance Unreachable Over SSH:
+
+### Resize an EC2 Instance with Minimal Downtime:
+
+### Configure Auto-Scaling for an Application on EC2:
+
+### Debug an EC2 Instance that Keeps Getting Terminated in an Auto Scaling Group:
+
+### Implement High Availability and Disaster Recovery for Applications Hosted on EC2:
+
+### Key Considerations for Setting Up Elastic Load Balancing with EC2:
+
+### Handle an EC2 Instance Disk Usage Nearing 100%:
+
+### Securely Store and Retrieve Sensitive Credentials in an EC2 Environment:
+
+### Migrate a Legacy Application from On-Prem to EC2:
+
+### Troubleshoot Performance Degradation in an EC2 Instance:
+
+### Set Up and Manage EC2 Instance Backups:
+
+### Best Practices for Securing EC2 Instances in Production:
+
+### Diagnose and Resolve Network Latency Issues Between EC2 Instances and RDS:
+
+### Differences Between EC2 Instance Storage Options and Their Use Cases:
+
+### Manage a Fleet of EC2 Instances Effectively:
+
+### Handle EC2 Instance Resource Limit Exceedance (e.g., CPU or Memory):
+
+### Considerations for Deploying Stateful Applications on EC2:
+
+### Optimize EC2 Costs in a Dynamic Workload Environment:
