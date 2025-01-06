@@ -36,4 +36,24 @@
 
 14. Accidently delete AMI and snapshot how to recover: Recycle Bin. But you should create the rule to retain the images.
 
-15. 
+New:
+How would you troubleshoot an EC2 instance that is unreachable over SSH?
+What steps would you take to resize an EC2 instance with minimal downtime?
+How do you configure auto-scaling for an application hosted on EC2 instances?
+Can you explain how to debug an EC2 instance that keeps getting terminated in an Auto Scaling group?
+How do you implement high availability and disaster recovery for applications hosted on EC2?
+What are the key considerations when setting up Elastic Load Balancing with EC2 instances?
+How would you handle a situation where an EC2 instance’s disk usage is nearing 100%?
+Explain how to securely store and retrieve sensitive credentials in an EC2 environment.
+How would you migrate a legacy application running on an on-premises server to EC2?
+What steps would you take to troubleshoot performance degradation in an EC2 instance?
+How do you set up and manage EC2 instance backups?
+What are the best practices for securing EC2 instances in a production environment?
+How do you diagnose and resolve network latency issues between EC2 instances and RDS?
+What are the challenges and solutions when deploying applications across multiple EC2 instances in different regions?
+How would you troubleshoot failed deployments to EC2 instances using a CI/CD pipeline?
+Can you explain the differences between EC2 instance storage options and their use cases?
+What is your approach to managing a fleet of EC2 instances effectively?
+How do you handle a scenario where your EC2 instance is flagged for exceeding resource limits (e.g., CPU or memory)?
+What are the considerations for deploying a stateful application on EC2 instances?
+How do you optimize the cost of EC2 instances in a dynamic workload environment?
