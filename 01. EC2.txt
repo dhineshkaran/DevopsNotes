@@ -1,4 +1,7 @@
-1. Increase the ec2 volume - decreasing the volume doesn't need any instance stoppage. But for increasing the ec2 instance we need to take a snapshot of the existing ec2 and create a ebs volume from there.
+1. Increase the ec2 volume - 
+   i. Take a snapshot
+   ii. Increase the volume through the console or cli.
+   iii. Extend the partition using "growpart" command.
 
 2. AMI - instance configuration record as an image. 
 
