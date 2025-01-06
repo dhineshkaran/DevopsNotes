@@ -1,51 +1,113 @@
-ASG: Maintains required number of instances all time.
+# ELB Design and Troubleshooting Guide
 
-ASG + LB: 
-    provides required number of instances with loadbalancing option
-    which means asg will scale based on cpu utilization, lb will spread traffic evenly and if a instance is removed from asg
-    loadbalancer know and will not route traffic to that instance.
+## Key Concepts
 
-ASG scaling options:
-    static: manual scaling
-    Dynamic: Dynamic scaling - Target tracking scaling (avg cpu utilization, networkin, networkout),
-                             -  step scaling (add 1 instance if cpuutilization is 50%, add 2 if cpu is 60%, and increase step by step)
-you can add multiple policies to one asg.
-you can add remove instance from inservice state to standby state to troubleshoot and include in the asg.
-Add termination policy to set the termination.
+- **Auto Scaling Group (ASG):** Maintains the required number of instances at all times.
+- **ASG + Load Balancer (LB):**
+    - Ensures the required number of instances with load balancing.
+    - ASG scales based on CPU utilization, while LB spreads traffic evenly across instances.
+    - If an instance is removed from ASG, LB ensures it no longer routes traffic to that instance.
+  
+- **ASG Scaling Options:**
+    - **Static Scaling:** Manual scaling.
+    - **Dynamic Scaling:**
+        - **Target Tracking Scaling:** Scales based on metrics like CPU, network-in, or network-out.
+        - **Step Scaling:** Adds/removes instances based on thresholds (e.g., add 1 instance if CPU > 50%, 2 instances if > 60%).
+    - **Policies:** Multiple policies can be added to one ASG.
+    - **Standby State:** Instances can be removed from service and added to standby for troubleshooting.
+    - **Termination Policy:** Defines which instance to terminate first.
 
-ASG uses launch template to spin up your instance.
-Launch template vs launch configuration: LT and LC both has instance configuration information.
-LT - newer and you can modify the exsisting configurations and have mulitple version
-LC - is older version and it does not support modification and versioning
+- **Launch Template (LT) vs Launch Configuration (LC):**
+    - **LT (Launch Template):** Newer version, supports modification, versioning, and multiple versions.
+    - **LC (Launch Configuration):** Older version, does not support modification or versioning.
 
-spot instance:
-you need the bid the price and till that bid price you can use, and it will be terminated with short notice when bid goes up.
-90% savings.
+- **Spot Instances:** 
+    - Bidding based on price. If the bid price exceeds, the instance will be terminated with short notice.
+    - Up to 90% cost savings.
 
-Application loadbalancer:
-    works at layer7 (http, https)
-    supports hostbased, pathbased routing
-    forward redirecting from https to https with ssl certificate support
-    it can target other aws services such as lambda
-    supports eks managed and fargate.
+- **Application Load Balancer (ALB):**
+    - Works at Layer 7 (HTTP, HTTPS).
+    - Supports host-based and path-based routing.
+    - Redirects traffic (HTTP to HTTPS) and supports SSL certificates.
+    - Can route traffic to AWS services like Lambda.
+    - Works with Amazon EKS and Fargate.
 
-Network loadbalancer:
-    works at tcp, udp layer.
-    Need elasticip to work efficiently.
-    support less latency and port based routing.
-    no support for eks fargate.
+- **Network Load Balancer (NLB):**
+    - Works at TCP, UDP layer.
+    - Needs Elastic IP for efficiency.
+    - Provides lower latency and port-based routing.
+    - Does not support EKS Fargate.
 
-Target: set of instance, which can be target by loadbalancer based on rules mentioned.
+- **SSL/TLS Termination:** 
+    - Encryption/decryption of connections using ACM certificates.
+    - Requests from browsers are encrypted and sent to the Load Balancer.
 
-SSL / TLS termination: encryption and decryption process for connection with acm.
-when you make connectoin from browser, encrypted request is send to loadbalancer with the acm cert.
+- **Cache vs Cookies:**
+    - **Cache:** Stores website content on the browser for media purposes.
+    - **Cookies:** Stores data on both the server and the browser for a limited time (e.g., for authentication).
 
-cache and cookies diff: 
-    Cache stores the website content only on a user browser for media purposes. 
-    Cookies store their content on both- a server as well as a browser for limited time authentication.
+- **WAF and Country Blocking:** 
+    - Block or allow traffic from specific countries by configuring WAF rules.
+    - Option to redirect blocked traffic to another DNS name.
 
-Block countries accessing your alb by using waf. create a waf rule by selecting your alb and allow or deny the country.
-also you can redirect them to the another dns name.
+- **Origin vs Distribution (for CloudFront):**
+    - **Origin:** The source location for content storage.
+    - **Distribution:** Edge locations for cached content.
 
-origin: location which has the source storage of the content.
-distribution: edge location where the contents will be cached
+---
+
+## Questions
+
+1. You are deploying a high-traffic web application. How would you design an ELB setup to ensure availability, fault tolerance, and low latency across multiple Availability Zones?
+   
+   Follow-up: What would you monitor in this setup to identify and resolve bottlenecks?
+
+2. During a traffic spike, your Application Load Balancer (ALB) started returning HTTP 503 errors. What could be the potential causes, and how would you troubleshoot this issue?
+
+   Hint: Discuss backend capacity, listener configurations, or scaling issues.
+
+3. You notice that the backend targets are marked as "unhealthy" in an ALB health check. The targets are accessible directly. What steps would you take to resolve the issue?
+
+   Hint: Check health check configuration, target response codes, and network ACLs.
+
+4. You’re tasked with securing an ALB in a public-facing environment. Explain how you would configure SSL/TLS certificates and enforce HTTPS. Also, mention how you would handle outdated TLS protocols.
+
+   Follow-up: How would you automate certificate rotation?
+
+5. A client requests sticky sessions for their e-commerce application. How would you configure this in an ALB, and what are the potential drawbacks in terms of scaling and performance?
+
+6. Your manager asks you to reduce ELB costs while maintaining performance. How would you approach this?
+
+   Hint: Use access patterns, disable unused features, or optimize instance allocation.
+
+7. How would you implement and test a blue/green deployment strategy using ELB with Auto Scaling groups?
+
+   Follow-up: How would you roll back if the new version causes issues?
+
+8. Your ALB is integrated with ECS, but requests are intermittently failing. What steps would you take to troubleshoot this issue?
+
+   Hint: Focus on ECS service definitions, target groups, and deregistration delays.
+
+9. Explain how you would design a multi-region disaster recovery setup using ALB and Route 53. What challenges might you face during failover?
+
+   Follow-up: How do you ensure data consistency during the failover?
+
+10. You notice that users from specific geographic regions are experiencing slow response times. How would you leverage ELB and other AWS services to improve their experience?
+
+   Hint: Consider geolocation routing with Route 53, latency-based routing, or edge caching.
+
+11. Your ELB logs show a sudden spike in requests from specific IP ranges. How would you identify whether this is a DDoS attack, and how would you mitigate it?
+
+   Hint: Discuss WAF rules, shield integration, and rate limiting.
+
+12. How would you troubleshoot a scenario where an ALB configured with Lambda targets returns intermittent 5XX errors?
+
+   Hint: Address timeout issues, concurrency limits, and integration settings.
+
+13. An ALB integrated with AWS Cognito for authentication is failing to redirect users after login. What might be the cause, and how would you fix it?
+
+   Follow-up: How do you debug OAuth or OIDC-related issues in such setups?
+
+14. Your team is building a microservices architecture, and you’re tasked with setting up an ALB to handle different APIs. How would you implement advanced routing rules for paths like `/users`, `/orders`, and `/payments`?
+
+15. You need to analyze traffic patterns through your ALB to identify underutilized resources. What tools and metrics would you use, and how would you interpret the data?
