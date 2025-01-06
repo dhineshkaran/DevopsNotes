@@ -1,13 +1,16 @@
-1. Increase the ec2 volume - 
+1. Increase the ec2 volume:
    i. Take a snapshot
    ii. Increase the volume through the console or cli.
    iii. Extend the partition using "growpart" command.
 
-2. AMI - instance configuration record as an image. 
+2. create AMI from ISO:
+   prereq: create an s3 bucket and a role "vmimport" with the required permissions.
 
-3. create AMI from ISO - Export the ISO image into amazon s3 as an ova image.
-   Use the aws ec2 import-image command to use the image from s3.
-   and Once the AMI is created you can create an ec2 instance from that iso image.
+   i. Create an OVA image using any VM tool. 
+   ii. Upload the ova package into s3 bucket.
+   iii. Create a json with metadata details about the ova package.
+   iv. Use the aws ec2 import-image command to use the image from s3.
+   v. AMI will be created and can be seen in private AMIs section.
 
 4. what is the instance you have used: m5.2xlarge (3) also worked with t3.xlarge (3).
 
