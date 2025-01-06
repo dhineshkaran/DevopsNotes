@@ -12,7 +12,7 @@
    iv. Use the aws ec2 import-image command to use the image from s3.
    v. AMI will be created and can be seen in private AMIs section.
 
-4. what is the instance you have used: m5.2xlarge (3) also worked with t3.xlarge (3).
+4. what is the instance you have used: t2.medium for jenkins master, and t3a.medium jenkins master, t2.medium for jenkins on-demand agents, neptune has t3.medium db instance type, RDS - m5d.xlarge.
 
 5. EC2 instance purchasing types - on-demand (pay for usage), scheduled (run only with a specified time window and terminates), spot (bidding prices and with a grace period of time it will be gracefully terminated ), dedicated hosts (dedicated physical server).
 
